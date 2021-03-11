@@ -100,8 +100,8 @@ export const loadMovie = async function (id, moviesInfo) {
 };
 
 const createMovieListsObject = function (data) {
-  const lists = data.results;
-  state.lists = lists.map((list) => {
+  // const lists = data.results;
+  state.lists = data.results.map((list) => {
     return {
       id: list.id,
       title: list.title,
@@ -122,7 +122,7 @@ export const loadMovieLists = async function () {
     const data = await getJSON(url);
     createMovieListsObject(data);
 
-    return this.state.lists;
+    return state.lists;
   } catch (err) {
     console.error(`${err} 💥💥💥`);
     throw err;
@@ -130,8 +130,8 @@ export const loadMovieLists = async function () {
 };
 
 const createMovieTopRated = function (data) {
-  const lists = data.results;
-  state.topRated = lists.map((list) => {
+  // const lists = data.results;
+  state.topRated = data.results.map((list) => {
     return {
       id: list.id,
       title: list.title,
@@ -150,9 +150,11 @@ export const loadMovieTopRated = async function () {
     const url = generateMovieDBUrl(`/movie/top_rated`);
 
     const data = await getJSON(url);
-    createMovieTopRated(data);
 
-    return this.state.topRated;
+    createMovieTopRated(data);
+    const topRatedList = state.topRated;
+
+    return topRatedList;
   } catch (err) {
     console.error(`${err} 💥💥💥`);
     throw err;

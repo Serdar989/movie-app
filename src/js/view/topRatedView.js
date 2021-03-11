@@ -11,7 +11,7 @@ class TopRatedView {
   }
 
   listsRender(handler) {
-    document.addEventListener('DOMContentLoaded', handler);
+    window.addEventListener('load', handler);
     console.log('jhajahsjash');
   }
 

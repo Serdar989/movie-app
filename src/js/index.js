@@ -41,6 +41,8 @@ const controlLatestMovie = async function () {
   try {
     listView.renderSpinner();
     const data = await model.loadMovieLists();
+    console.log('kavabunga4');
+
     listsView.render(
       data,
       model.state.slide_index,
@@ -87,7 +89,9 @@ const controlSingleMovie = async function (id) {
 const controlTopRated = async function () {
   try {
     topRatedView.renderSpinner();
+
     const data = await model.loadMovieTopRated();
+
     topRatedView.render(
       data,
       model.state.topRated_slide_index,
