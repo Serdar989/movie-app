@@ -37,7 +37,6 @@ const controlMovie = async function (id) {
     console.log(error);
   }
 };
-
 const controlLatestMovie = async function () {
   try {
     listView.renderSpinner();
