@@ -203,7 +203,7 @@ const init = function () {
   }
 };
 init();
-
+console.log('ddasdasd');
 const clearBookmarks = function () {
   localStorage.clear('bookmarks');
   localStorage.clear('bookmarksID');
