@@ -11,8 +11,10 @@ class TopRatedView {
   }
 
   listsRender(handler) {
-    window.addEventListener('load', handler);
+    document.addEventListener('DOMContentLoaded', handler);
+    console.log('jhajahsjash');
   }
+
   renderSpinner() {
     const markup = `
        <div class="spinner">

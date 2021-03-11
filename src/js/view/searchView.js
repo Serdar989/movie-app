@@ -99,9 +99,6 @@ class SearchView {
   }
 
   renderError() {
-    // this.searchResult.classList.add('display-section');
-    // this.errorMessage.classList.add('display-section');
-
     const markup = `
       <div class="error">
         <div>
@@ -111,8 +108,6 @@ class SearchView {
       </div>`;
     this.clearMessage();
     this.clear();
-    // this.parentElement.previousElementSibling.style.display = 'none';
-    // this.errorMessage.style.display = 'block';
 
     this.errorMessage.insertAdjacentHTML('afterbegin', markup);
   }

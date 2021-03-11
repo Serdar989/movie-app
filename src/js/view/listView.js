@@ -10,7 +10,7 @@ class ListsView {
   }
 
   listsRender(handler) {
-    window.addEventListener('load', handler);
+    document.addEventListener('DOMContentLoaded', handler);
   }
   renderSpinner() {
     const markup = `
