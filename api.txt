@@ -1,0 +1,5 @@
+movie app
+
+api key: 90e6cdedb1af5c0bd8f14b69484e25e1
+api primer: https://api.themoviedb.org/3/movie/550?api_key=90e6cdedb1af5c0bd8f14b69484e25e1
+api token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGU2Y2RlZGIxYWY1YzBiZDhmMTRiNjk0ODRlMjVlMSIsInN1YiI6IjYwMDg4ODE2ZDcwNTk0MDAzZDFhYzkwZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sm1loAWwTtnjGJ80lYVk3P9xygHd9qx-akbJKAOE1EU

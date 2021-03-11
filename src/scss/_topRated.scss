@@ -1,0 +1,69 @@
+.top-rated-movies {
+  grid-area: topRated;
+  position: relative;
+  background: $color-white;
+
+  padding: 5rem 1rem 10rem 1rem;
+  @media only screen and (max-width: $bp-medium) {
+    & {
+      padding: 3rem 1rem 6rem 1rem;
+    }
+  }
+  h1 {
+    padding: 0 0 5rem 0;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    padding: 0 1rem;
+    .spinner {
+      top: 55%;
+      i.fas {
+        color: $color-grey-dark-1;
+      }
+    }
+    @media only screen and (max-width: $bp-extra-large) {
+      & {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    @media only screen and (max-width: $bp-large) {
+      & {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media only screen and (max-width: $bp-medium) {
+      & {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media only screen and (max-width: $bp-very-small) {
+      & {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media only screen and (max-width: $bp-very-very-small) {
+      & {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  .top-rated-nav {
+    position: absolute;
+    top: 60%;
+    i {
+      font-size: 3rem;
+      color: $color-triadic-2;
+      cursor: pointer;
+    }
+    &.prev {
+      left: 3rem;
+    }
+    &.next {
+      right: 3rem;
+    }
+  }
+}

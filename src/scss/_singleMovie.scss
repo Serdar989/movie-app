@@ -1,0 +1,304 @@
+#movie {
+  grid-area: movieDetails;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+  background: url('../images/movie.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 0;
+  position: relative;
+  .spinner {
+    top: 55%;
+    i.fas {
+      color: $color-grey-light-1;
+    }
+  }
+  h1 {
+    color: $color-white;
+    text-align: center;
+  }
+  &.movie-describe {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    padding: 5rem 2rem;
+    @media only screen and (max-width: $bp-medium) {
+      & {
+        padding: 3rem 1rem;
+      }
+    }
+  }
+  .movie-details {
+    background: $color-white;
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    box-shadow: 0px 3px 9px 4px #000000;
+    grid-template-columns: auto repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      'title title title title title title'
+      'poster video video video movieDescription  movieDescription';
+    padding: 1rem;
+    grid-gap: 1rem;
+
+    @media only screen and (max-width: $bp-extra-large) {
+      & {
+        grid-template-columns: auto 1fr 1fr;
+        grid-template-rows: auto auto auto;
+
+        grid-template-areas:
+          'title title title'
+          'poster video video'
+          'movieDescription movieDescription movieDescription';
+      }
+    }
+    @media only screen and (max-width: $bp-medium) {
+      & {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+
+        grid-template-areas:
+          'title'
+          'poster'
+          'video'
+          'movieDescription';
+        justify-items: center;
+      }
+    }
+
+    .title-container {
+      grid-area: title;
+      & > *:not(:last-child) {
+        margin-bottom: 0.7rem;
+      }
+      .subtitle-description {
+        display: flex;
+        p:first-of-type {
+          position: relative;
+          padding-right: 1rem;
+          margin-right: 1rem;
+          &::after {
+            content: '';
+            height: 70%;
+            width: 1px;
+
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            background-color: #000000;
+          }
+        }
+      }
+    }
+
+    .image-container {
+      grid-area: poster;
+      img {
+        height: 31.5rem;
+        @media only screen and (max-width: $bp-extra-large) {
+          & {
+            height: 50rem;
+          }
+        }
+        @media only screen and (max-width: $bp-large) {
+          & {
+            height: 35rem;
+          }
+        }
+      }
+    }
+    .video-contianer {
+      grid-area: video;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-green;
+      iframe,
+      .error {
+        width: 100%;
+        height: 31.5rem;
+        @media only screen and (max-width: $bp-extra-large) {
+          & {
+            height: 50rem;
+          }
+        }
+        @media only screen and (max-width: $bp-large) {
+          & {
+            height: 35rem;
+          }
+        }
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        & {
+          width: 100%;
+          iframe {
+            height: 30rem;
+            @media only screen and (max-width: $bp-smallest) {
+              & {
+                height: 21rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .video-description {
+      grid-area: movieDescription;
+
+      & > *:not(:last-child) {
+        margin-bottom: 0.7rem;
+      }
+
+      .vote-container {
+        display: flex;
+        justify-content: center;
+
+        p {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &:first-child {
+            position: relative;
+            padding-right: 1rem;
+            margin-right: 1rem;
+            &::after {
+              content: '';
+              height: 90%;
+              width: 1px;
+
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translate(0, -50%);
+
+              background-color: #000000;
+            }
+          }
+          &:last-child {
+            i {
+              color: $color-grey-dark-2;
+              cursor: pointer;
+            }
+          }
+          i {
+            margin-right: 0.5rem;
+            color: $color-yellow;
+            font-size: 3.5rem;
+          }
+        }
+      }
+      .btn-container {
+        grid-area: button;
+      }
+    }
+    span {
+      font-weight: 700;
+    }
+  }
+}
+.popUp-rating {
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+
+  height: 0;
+  &.visible-rating {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+  }
+
+  position: absolute;
+  top: 61%;
+  left: 62%;
+  z-index: 100;
+  padding: 1rem;
+  font-size: 1.4rem;
+  background: $color-grad-1;
+  color: $color-white;
+  .close-form {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #status {
+    display: none;
+  }
+  .rating {
+    display: flex;
+    flex-direction: row-reverse;
+
+    &:not(:checked) > input {
+      position: absolute;
+      top: -9999px;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    &:not(:checked) > label {
+      padding: 0 0.1em;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 200%;
+      line-height: 1.2;
+      color: #ddd;
+      text-shadow: 1px 1px #bbb, 2px 2px #666,
+        0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+    }
+
+    & > input:checked ~ label {
+      color: #f70;
+      text-shadow: 1px 1px #c60, 2px 2px #940,
+        0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+    }
+
+    &:not(:checked) > label:hover,
+    &:not(:checked) > label:hover ~ label {
+      color: gold;
+      text-shadow: 1px 1px goldenrod, 2px 2px #b57340,
+        0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+    }
+
+    & > input:checked + label:hover,
+    & > input:checked + label:hover ~ label,
+    & > input:checked ~ label:hover,
+    & > input:checked ~ label:hover ~ label,
+    & > label:hover ~ input:checked ~ label {
+      color: #ea0;
+      text-shadow: 1px 1px goldenrod, 2px 2px #b57340,
+        0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+    }
+
+    & > label:active {
+      position: relative;
+      top: 2px;
+      left: 2px;
+    }
+    legend {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    content: ' ';
+    display: table;
+  }
+
+  .clearfix:after {
+    clear: both;
+  }
+
+  .clearfix {
+    *zoom: 1;
+  }
+
+  #status,
+  button {
+    margin: 20px 0;
+  }
+}
