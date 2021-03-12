@@ -8,7 +8,6 @@ const path = require('path');
 module.exports = {
   entry: {
     index: './src/js/index.js',
-    //'chart-page': './src/js/chart-page.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -134,19 +133,15 @@ module.exports = {
     new CleanWebpackPlugin(),
 
     new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
+      template: path.resolve(__dirname, 'src', 'index.html'),
       chunks: ['index'],
-      filename: './index.html', //ovo je destinacija, minimiziran original, ima vec src ka main.js
+      filename: './index.html',
     }),
-    // new HtmlWebPackPlugin({
-    //   template: path.resolve(__dirname, 'src', 'asteroid-chart.html'),
-    //   chunks: ['chart-page'],
-    //   filename: './asteroid-chart.html',
-    // }),
+
     new MiniCssExtractPlugin({
       filename: 'main.css',
       chunkFilename: '[id].css',
-      ignoreOrder: false, // Enable to remove warnings about conflicting order
+      ignoreOrder: false,
     }),
   ],
 };
