@@ -73,7 +73,7 @@ class ListsView {
           </div>
           <div class="movie-details">
             <div class="title-container">
-              <h2>Title: ${result.title}</h2>
+              <h3>Title: ${result.title}</h3>
             </div>
             <div class="release-date">
               <p>Vote average: ${result.voteAverage}</p>
