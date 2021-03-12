@@ -41,7 +41,6 @@ const controlLatestMovie = async function () {
   try {
     listView.renderSpinner();
     const data = await model.loadMovieLists();
-    console.log('kavabunga4');
 
     listsView.render(
       data,
@@ -78,7 +77,7 @@ const controlSlider = function (n) {
 
 const controlSingleMovie = async function (id) {
   try {
-    // resultsView.renderSpinner();
+    movieView.renderSpinner();
     await model.loadMovie(id, model.state.lists);
     movieView.render(model.state.movieTopRated, model.state.bookmarksID);
   } catch (error) {
@@ -89,9 +88,7 @@ const controlSingleMovie = async function (id) {
 const controlTopRated = async function () {
   try {
     topRatedView.renderSpinner();
-
     const data = await model.loadMovieTopRated();
-
     topRatedView.render(
       data,
       model.state.topRated_slide_index,
@@ -128,7 +125,7 @@ const controlSliderTopRated = function (n) {
 
 const controlSingleMovieTopRated = async function (id) {
   try {
-    // resultsView.renderSpinner();
+    movieView.renderSpinner();
     await model.loadMovie(id, model.state.topRated);
     movieView.render(model.state.movieTopRated, model.state.bookmarksID);
   } catch (error) {
@@ -141,7 +138,7 @@ const controlLoadBookmarks = function () {
 };
 const controlBookmarks = async function (id) {
   try {
-    // resultsView.renderSpinner();
+    movieView.renderSpinner();
     await model.loadMovie(id, model.state.bookmarks);
     movieView.render(model.state.movieTopRated, model.state.bookmarksID);
     bookmarksView.hideBookmarks();

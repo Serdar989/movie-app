@@ -1,4 +1,3 @@
-// import View from './View.js';
 import { IMAGE_URL } from '../config.js';
 
 class MovieView {

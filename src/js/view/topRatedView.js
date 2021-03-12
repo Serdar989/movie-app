@@ -12,7 +12,6 @@ class TopRatedView {
 
   listsRender(handler) {
     window.addEventListener('load', handler);
-    console.log('jhajahsjash');
   }
 
   renderSpinner() {
