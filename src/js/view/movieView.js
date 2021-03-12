@@ -99,7 +99,7 @@ class MovieView {
                         <p>This movie doesn't have video</p>
                        </div>`
                     : ` <iframe
-                      src='http://www.youtube.com/embed/${movie.key}'
+                      src='https://www.youtube.com/embed/${movie.key}'
                   allowfullscreen=''
                 ></iframe>`
                 }
