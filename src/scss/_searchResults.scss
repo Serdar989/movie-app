@@ -1,9 +1,7 @@
 .search-results {
   background: $color-grey-light-1;
   grid-area: searchResult;
-  background-image: $gradient;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: $color-blue;
   color: $color-white;
   padding: 5rem 2rem;
   @media only screen and (max-width: $bp-medium) {

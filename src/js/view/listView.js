@@ -2,6 +2,7 @@ import { IMAGE_URL } from '../config.js';
 
 class ListsView {
   constructor() {
+    this.singleMovie = document.querySelector('#movie');
     this.parentElement = document.querySelector('.latest-movie__list');
     this.sliderNav = document.querySelector('.slider-nav');
     this.sliderNext = document.querySelector('.slider-nav.next');
@@ -57,10 +58,14 @@ class ListsView {
     });
   }
   addHandlerSingleMovie(handler) {
+    const singleMovie = this.singleMovie;
     this.parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn');
       if (!btn) return;
       const id = btn.dataset.movieId;
+      singleMovie.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // window.scrollBy(0, -10); // Adjust scrolling with a negative value here
+
       handler(id);
     });
   }
