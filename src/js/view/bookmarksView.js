@@ -23,10 +23,12 @@ class bookmarksView {
 
   addHandlerBookmarks(handler) {
     this.parentElementMovie.addEventListener('click', function (e) {
+      e.preventDefault();
       const btn = e.target.closest('.btn');
       if (!btn) return;
       const id = btn.dataset.movieId;
       handler(id);
+      return false;
     });
   }
 

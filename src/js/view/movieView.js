@@ -43,6 +43,7 @@ class MovieView {
   addHandlerRate(handler) {
     let checker = this.checkBox;
     const movieElement = this.parentElementMovie;
+    const popupForm = this.popupRating;
 
     this.ratingForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -52,11 +53,15 @@ class MovieView {
         if (checker[i].checked) {
           checkedValue = checker[i].value;
           const id = movieElement.firstElementChild.dataset.videoId;
-          console.log(checkedValue, id);
+          console.log('chceker je ' + checkedValue, checker[i]);
           handler(id, checkedValue);
+
+          popupForm.classList.remove('visible-rating');
+          return false;
         }
         checker[i].checked = false;
       }
+      return false;
     });
   }
   renderSpinner() {
